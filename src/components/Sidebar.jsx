@@ -2,36 +2,38 @@ import React from 'react';
 
 const Sidebar = () => {
   const trendingTopics = [
-    'React Hooks',
-    'JavaScript ES6',
-    'CSS Grid',
-    'Node.js',
-    'GraphQL',
+    'Cryptocurrency',
+    'Inflation',
+    'Green Energy',
+    'Tech Stocks',
+    'Global Trade',
   ];
 
-  const handleNewsletterSignup = (event) => {
-    event.preventDefault();
-    const email = event.target.elements.email.value;
-    console.log(`Newsletter signup for: ${email}`);
-    // Here you would typically handle the signup logic, e.g., send the email to your server
-  };
-
   return (
-    <aside className="sidebar">
-      <section className="trending-topics">
-        <h2>Trending Topics</h2>
-        <ul>
+    <aside className="bg-gray-100 p-4 rounded-lg">
+      <section className="mb-8">
+        <h2 className="text-xl font-semibold mb-4">Trending Topics</h2>
+        <ul className="space-y-2">
           {trendingTopics.map((topic, index) => (
-            <li key={index}>{topic}</li>
+            <li key={index} className="text-blue-600 hover:underline cursor-pointer">{topic}</li>
           ))}
         </ul>
       </section>
-      <section className="newsletter-signup">
-        <h2>Newsletter Signup</h2>
-        <form onSubmit={handleNewsletterSignup}>
-          <label htmlFor="email">Email:</label>
-          <input type="email" id="email" name="email" required />
-          <button type="submit">Sign Up</button>
+      <section>
+        <h2 className="text-xl font-semibold mb-4">Newsletter Signup</h2>
+        <form onSubmit={(e) => { e.preventDefault(); console.log('Newsletter signup'); }}>
+          <input
+            type="email"
+            placeholder="Your email address"
+            className="w-full p-2 border rounded mb-2"
+            required
+          />
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition duration-300"
+          >
+            Sign Up
+          </button>
         </form>
       </section>
     </aside>

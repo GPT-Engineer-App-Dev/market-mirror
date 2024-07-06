@@ -1,58 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 const MarketData = () => {
-  const [marketData, setMarketData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchMarketData = async () => {
-      try {
-        const response = await fetch('https://api.example.com/market-data');
-        if (!response.ok) {
-          throw new Error('Failed to fetch market data');
-        }
-        const data = await response.json();
-        setMarketData(data);
-      } catch (error) {
-        setError(error.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchMarketData();
-  }, []);
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
+  // Mock data for demonstration
+  const marketIndices = [
+    { name: 'S&P 500', value: '4,185.47', change: '+0.75%' },
+    { name: 'Dow Jones', value: '33,875.40', change: '+0.89%' },
+    { name: 'NASDAQ', value: '14,026.16', change: '+0.51%' },
+    { name: 'FTSE 100', value: '7,019.53', change: '+0.52%' },
+  ];
 
   return (
-    <div>
-      <h2>Market Data</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Index</th>
-            <th>Current Value</th>
-            <th>Change (%)</th>
-          </tr>
-        </thead>
-        <tbody>
-          {marketData.map((index) => (
-            <tr key={index.name}>
-              <td>{index.name}</td>
-              <td>{index.currentValue}</td>
-              <td>{index.changePercent}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className="bg-gray-100 p-4 rounded-lg mb-6">
+      <h2 className="text-xl font-semibold mb-4">Market Data</h2>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {marketIndices.map((index, i) => (
+          <div key={i} className="text-center">
+            <h3 className="font-medium">{index.name}</h3>
+            <p className="text-lg">{index.value}</p>
+            <p className={`text-sm ${index.change.startsWith('+') ? 'text-green-600' : 'text-red-600'}`}>
+              {index.change}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
