@@ -1,6 +1,4 @@
 import React from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import NewsGrid from '../components/NewsGrid';
 import MarketData from '../components/MarketData';
 import Sidebar from '../components/Sidebar';
@@ -27,23 +25,19 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      <main className="flex-grow container mx-auto px-4 py-8">
-        <div className="flex flex-col lg:flex-row gap-8">
-          <div className="lg:w-3/4">
-            <h1 className="text-3xl font-bold mb-6">Latest Financial News</h1>
-            <MarketData />
-            <div className="my-8">
-              <NewsGrid articles={articles} />
-            </div>
+    <div className="container mx-auto px-4 py-8">
+      <div className="flex flex-col lg:flex-row gap-8">
+        <div className="lg:w-3/4">
+          <h1 className="text-3xl font-bold mb-6">Latest Financial News</h1>
+          <MarketData />
+          <div className="my-8">
+            <NewsGrid articles={articles} />
           </div>
-          <aside className="lg:w-1/4">
-            <Sidebar />
-          </aside>
         </div>
-      </main>
-      <Footer />
+        <aside className="lg:w-1/4">
+          <Sidebar />
+        </aside>
+      </div>
     </div>
   );
 };
