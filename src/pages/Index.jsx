@@ -1,10 +1,24 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React from 'react';
 
 const Index = () => {
   return (
-    <div className="text-center">
-      <h1 className="text-3xl">Your Blank Canvas</h1>
-      <p>Chat with the agent to start making edits.</p>
+    <div className="container mx-auto">
+      <header className="bg-blue-500 text-white p-4">
+        <h1 className="text-4xl">Financial News</h1>
+      </header>
+      <div className="flex">
+        <main className="flex-1 p-4">
+          <h2 className="text-2xl mb-4">Latest News</h2>
+          {/* Main content goes here */}
+        </main>
+        <aside className="w-1/4 p-4 bg-gray-100">
+          <h2 className="text-xl mb-4">Sidebar</h2>
+          {/* Sidebar content goes here */}
+        </aside>
+      </div>
+      <footer className="bg-blue-500 text-white p-4 text-center">
+        <p>&copy; 2023 Financial News. All rights reserved.</p>
+      </footer>
     </div>
   );
 };
