@@ -11,7 +11,7 @@ const queryClient = new QueryClient();
 
 export const navItems = [
   {
-    title: "Home", // Feel free to change this to your liking
+    title: "Home",
     to: "/",
     icon: <Home className="h-4 w-4" />,
   },
@@ -38,7 +38,6 @@ const App = () => {
               <Route index element={<Index />} />
               <Route path="about" element={<About />} />
               <Route path="contact" element={<ContactPage />} />
-              {/* Add more routes here as needed */}
             </Route>
           </Routes>
         </Router>
